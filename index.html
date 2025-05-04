@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gallery-wrap">
+        <img src="images/back.png" id="backBtn">
+        <div class="gallery">
+            <div>
+                <span><img src="images/GBASP.jpg"></span>
+                <span><img src="images/PSP.jpg"></span>
+                <span><img src="images/NDS.jpg"></span>
+            </div>
+            <div>
+                <span><img src="images/3DS.jpg"></span>
+                <span><img src="images/PSVITA.jpg"></span>
+                <span><img src="images/SWITCH.jpg"></span>
+            </div>
+        </div>
+        <img src="images/next.png" id="nextBtn">
+    </div>
+
+    <script>
+        let scrollContainer = document.querySelector('.gallery');
+        let backBtn = document.getElementById('backBtn');
+        let nextBtn = document.getElementById('nextBtn');
+
+        //scrolling arrow function
+        scrollContainer.addEventListener('wheel', (event) => {
+            event.preventDefault();
+            scrollContainer.scrollLeft += event.deltaY;
+            scrollContainer.style.scrollBehavior = 'auto'; // Enable smooth scrolling
+        });
+        //next button
+        nextBtn.addEventListener('click', () => {
+            scrollContainer.style.scrollBehavior = 'smooth'; // Enable smooth scrolling
+            scrollContainer.scrollLeft += 900;
+        });
+        //back button
+        backBtn.addEventListener('click', () => {
+            scrollContainer.style.scrollBehavior = 'smooth'; // Enable smooth scrolling
+            scrollContainer.scrollLeft -= 900;
+        });
+    </script>
+
+</body>
+</html>
